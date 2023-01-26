@@ -3,7 +3,7 @@ import './message.css';
 import  UserContext  from '../UserContext/usercontext';
 function Message({user, message}){
     const currentUser = useContext(UserContext);
-    console.log(user, currentUser)
+    
     return <div className={(currentUser===user)?"currentUserMessage":"otherUserMesage"}>
         {user}: {message}
     </div>
