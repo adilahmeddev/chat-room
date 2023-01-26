@@ -10,12 +10,9 @@ const socket = socketIO.connect('http://localhost:4000', {
 function App() {
  
     socket.emit('hi', {
-     
       user: "Adil",
-    
     });
 
-  console.log(UserContext)
   return (
     <UserContext.Provider value="Adil">
       <div>
