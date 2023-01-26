@@ -8,15 +8,19 @@ export default function Chatbox({socket}){
 
     const handleSendMessage = (e) => {
         e.preventDefault();
+        
+        let messageToSend = currentMessage.repeat(1);
+        setMessage('');
+  
         if (currentMessage.trim()) {
           socket.emit('message', {
-            text: currentMessage,
+            text: messageToSend,
             user: username,
             id: `${socket.id}${Math.random()}`,
             socketID: socket.id,
           });
         }
-        setMessage('');
+       
     };
 
     return <div className="chatbox">
