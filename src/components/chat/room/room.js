@@ -3,9 +3,7 @@ import { useState, useEffect, useContext } from 'react';
 import './room.css';
 
 import Chatbox from "../chatbox/chatbox";
-function Room({ socket }) {
-   
-    
+function Room({ socket }) { 
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {

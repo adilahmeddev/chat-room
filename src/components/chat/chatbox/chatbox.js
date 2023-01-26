@@ -2,13 +2,10 @@ import { useState, useEffect, useContext } from 'react';
 import UserContext from "../UserContext/usercontext";
 
 export default function Chatbox({socket}){
+    let username = useContext(UserContext);
 
-    let username = useContext(UserContext)
     const [currentMessage, setMessage] = useState('');
-    const setMessageState = function (messageParam) {
-        console.log("setting")
-        setMessage(messageParam)
-    }
+
     const handleSendMessage = (e) => {
         e.preventDefault();
         if (currentMessage.trim()) {
@@ -29,7 +26,7 @@ export default function Chatbox({socket}){
                     placeholder="Write message"
                     className="message"
                     value={currentMessage}
-                    onChange={(e) => setMessageState(e.target.value)}
+                    onChange={(e) => setMessage(e.target.value)}
                 />
                 <button className="sendBtn">SEND</button>
             </form>
